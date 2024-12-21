@@ -1,6 +1,18 @@
 from cryptography.fernet import Fernet
+from os import system, name
+
+def clear():
+
+    # for windows
+    if name == 'nt':
+        _ = system('cls')
+
+    # for mac and linux(here, os.name is 'posix')
+    else:
+        _ = system('clear')
 
 def write_key():
+    clear()
     keyName = input("What do you want to name the key? ")
     key = Fernet.generate_key()
     with open(keyName + ".key", "wb") as key_file:
@@ -9,12 +21,14 @@ def write_key():
     menu()
 
 def load_key():
+    clear()
     keyName = input("What is the key's name? ")
-    return open(keyName, "rb").read()
+    return open(keyName + ".key", "rb").read()
     print("Done!")
     menu()
 
 def encrypt(filename, key):
+    clear()
     file = open(key, "r")
     content = file.read()
     key = content
@@ -29,6 +43,7 @@ def encrypt(filename, key):
     menu()
 
 def decrypt(filename, key):
+    clear()
     file = open(key, "r")
     content = file.read()
     key = content
@@ -42,7 +57,8 @@ def decrypt(filename, key):
 
 
 def menu():
-    print("1). Generate a key")
+    clear()
+    print("1). Generate a key") 
     print("2). Read a key")
     print("3). Encrypt a file")
     print("4). Decrypt a file.")
@@ -50,7 +66,6 @@ def menu():
     task = input("What do you want to do? ")
 
     if task == "1" :
-        keyName = input("What do you want to name the key? ")
         write_key()
     if task == "2" :
         print(load_key())
