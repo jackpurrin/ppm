@@ -1,18 +1,21 @@
 from cryptography.fernet import Fernet
 
-print("python passw0rd manager")
-print("not a safe password manager to use for daily use")
-print("use for testing only! no secrets!")
+key = Fernet.generate_key()
 
-print("")
-print("1.) Generate a key and encrypt a database")
-print("2.) Make a database")
+with open('encr.key', 'wb') as encr:
+    encr.write(key)
 
-option = input("What do you want to do?")
+with open('encr.key', 'rb') as encr:
+    key = encr.read()
 
-if option == 1 :
-    with open('filekey.key', 'wb') as filekey:
-    filekey.write(key)
+print('DEBUG ONLY!!!! REMOVE IN PROD!! ', key)
 
-print("done")
+f = Fernet(key)
 
+with open('grades.csv', 'rb') as original_file:
+    original = original_file.read()
+
+encrypted = f.encrypt(original)
+
+with open ('enc_grades.csv', 'wb') as encrypted_file:
+    encrypted_file.write(encrypted)
