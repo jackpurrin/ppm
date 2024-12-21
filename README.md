@@ -1,5 +1,1 @@
-## ppm
-
-a dead simple python password manager
-
-do not use just yet for production, it is not safe
+gAAAAABnZkfoClhEquCDorGzwwm8sAjFoPLud2wh5a-HBzovWIFKsx7AXO8hreIoVRb1Jh3yPz7JBWjQXYu9NiwHODtrCrXf-x6sHNBrgXUyql91YAjwGxNGVVmux3Q19NlJvX5v-2x4ikFE5L7sUt-O6n5jelA_V-FM8L9g3v98WV4At59z7q00QD5O2tiQSIe7N5z1F4B2R-j62EXxjzmClKq9S65RtA==
